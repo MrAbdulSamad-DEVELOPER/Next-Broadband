@@ -164,8 +164,7 @@ Please confirm availability and installation details.`;
             Internet Packages
           </h2>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#94A3B8]">
-            Select your preferred speed tier. All packages are deployed across our high-reliability
-            network with direct WhatsApp assistance.
+            Explore high-speed home WiFi packages and commercial broadband solutions across Pakistan. Select your preferred speed tier with direct WhatsApp assistance.
           </p>
 
           {/* Clean, Interactive, Touch-Friendly Filter Tabs */}

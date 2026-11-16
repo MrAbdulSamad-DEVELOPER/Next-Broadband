@@ -6,6 +6,7 @@ import Coverage from "../components/Coverage";
 import WhyChooseUs from "../components/WhyChooseUs";
 import AboutUs from "../components/AboutUs";
 import Testimonials from "../components/Testimonials";
+import BlogSection from "../components/BlogSection";
 import FAQ from "../components/FAQ";
 import ContactCTA from "../components/ContactCTA";
 import Footer from "../components/Footer";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <WhyChooseUs />
         <AboutUs />
         <Testimonials />
+        <BlogSection />
         <FAQ />
         <ContactCTA />
       </main>

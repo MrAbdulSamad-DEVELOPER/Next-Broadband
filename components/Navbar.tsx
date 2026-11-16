@@ -27,12 +27,13 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Packages", href: "#packages" },
-    { name: "Coverage", href: "#coverage" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "Services", href: "/#services" },
+    { name: "Packages", href: "/#packages" },
+    { name: "Coverage", href: "/#coverage" },
+    { name: "Blog", href: "/blog" },
+    { name: "About", href: "/#about" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   const handleLinkClick = () => {

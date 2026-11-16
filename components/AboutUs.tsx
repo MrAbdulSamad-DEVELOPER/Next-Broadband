@@ -15,7 +15,7 @@ export default function AboutUs() {
               <div className="w-28 h-28 sm:w-36 sm:h-36 relative mb-5 sm:mb-6">
                 <Image
                   src="/logo.png"
-                  alt="Next Broadband Official Brand Logo"
+                  alt="Next Broadband — Best Fiber Optic & Wireless Internet ISP in Pakistan"
                   width={144}
                   height={144}
                   priority

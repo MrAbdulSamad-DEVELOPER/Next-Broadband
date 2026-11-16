@@ -58,32 +58,37 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#94A3B8]">
               <li>
-                <Link href="#home" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/#home" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/#services" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   Internet Technologies
                 </Link>
               </li>
               <li>
-                <Link href="#packages" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/#packages" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   Internet Packages
                 </Link>
               </li>
               <li>
-                <Link href="#coverage" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/#coverage" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   Check Coverage
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/blog" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                  Blog & Tech Guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
+                <Link href="/#contact" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
                   Contact
                 </Link>
               </li>
