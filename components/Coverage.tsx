@@ -1,10 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { MapPin, Search, MessageCircle, ShieldCheck } from "lucide-react";
+import { MapPin, Search, MessageCircle, ShieldCheck, Tag } from "lucide-react";
 
 export default function Coverage() {
   const [area, setArea] = useState("");
+
+  const activeDeploymentZones = [
+    "Residential Sectors",
+    "Main Commercial Markets",
+    "Corporate Offices",
+    "Surrounding Towns",
+  ];
+
+  const handleAreaClick = (zone: string) => {
+    setArea(zone);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,8 +57,8 @@ Please let me know if fiber optic or wireless coverage is available and share in
               connectivity directly with our dispatch team.
             </p>
 
-            {/* Search Input + Check Availability Button (Stacked vertically on mobile, side-by-side on sm+) */}
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-6">
+            {/* Search Input + Check Availability Button */}
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-5">
               <div className="relative flex-1">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#94A3B8]">
                   <Search className="w-5 h-5 text-[#00E5FF] flex-shrink-0" />
@@ -70,6 +81,26 @@ Please let me know if fiber optic or wireless coverage is available and share in
                 <span>Check Availability</span>
               </button>
             </form>
+
+            {/* Clickable Active Deployment Zone Tags */}
+            <div className="mb-8">
+              <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#94A3B8] font-mono uppercase tracking-wider mb-2.5">
+                <Tag className="w-3.5 h-3.5 text-[#00E5FF]" />
+                <span>Active Deployment Zones:</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {activeDeploymentZones.map((zone) => (
+                  <button
+                    key={zone}
+                    type="button"
+                    onClick={() => handleAreaClick(zone)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-[#F8FAFC] bg-[#0A0F1C] hover:bg-[#152033] border border-white/[0.1] hover:border-[#00E5FF]/40 transition-colors"
+                  >
+                    {zone}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Guarantee Note */}
             <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs text-[#94A3B8]/90">

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -157,10 +157,16 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center mb-12 sm:mb-16">
           {/* Headline & CTAs (Left Column on Desktop, Centered on Mobile/Tablet) */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
-            {/* Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827] border border-white/[0.08] text-[11px] sm:text-xs font-semibold text-[#00E5FF] mb-5 sm:mb-6 backdrop-blur-md shadow-sm max-w-full">
-              <Zap className="w-3.5 h-3.5 text-[#00E5FF] animate-pulse flex-shrink-0" />
-              <span className="truncate">Next-Generation Internet Service Provider</span>
+            {/* Live Status & Trust Badge */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-5 sm:mb-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827] border border-[#25D366]/40 text-[11px] sm:text-xs font-semibold text-[#F8FAFC] backdrop-blur-md shadow-lg shadow-[#25D366]/10">
+                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+                <span>99.9% Network Uptime • Local Dispatch Active</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#111827] border border-white/[0.08] text-[11px] sm:text-xs font-semibold text-[#00E5FF]">
+                <Zap className="w-3.5 h-3.5 text-[#00E5FF] animate-pulse flex-shrink-0" />
+                <span>ISP Solutions</span>
+              </div>
             </div>
 
             {/* Main Headline with fluid typography */}
@@ -204,10 +210,15 @@ export default function Hero() {
                 <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-ping" />
                 <span>Optical Core Active</span>
               </div>
-              <div className="flex items-center gap-2">
+              <a
+                href="https://wa.me/923491988224"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
+              >
                 <span className="w-2 h-2 rounded-full bg-[#25D366]" />
-                <span>WhatsApp Dispatch Ready</span>
-              </div>
+                <span>WhatsApp Dispatch Ready: 0349 1988224</span>
+              </a>
             </div>
           </div>
 
@@ -250,18 +261,21 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Key Metrics Grid */}
+                {/* Key Metrics Grid with Clickable Phone Link */}
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                   <div className="p-3 sm:p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
                     <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Response Time</div>
                     <div className="text-sm sm:text-base font-bold text-[#F8FAFC] mt-0.5">&lt; 5ms Latency</div>
                     <div className="text-[10px] text-[#00E5FF]">Ultra-Low Jitter</div>
                   </div>
-                  <div className="p-3 sm:p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
-                    <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Direct Dispatch</div>
-                    <div className="text-sm sm:text-base font-bold text-[#F8FAFC] mt-0.5">0349 1988224</div>
-                    <div className="text-[10px] text-[#25D366]">Local Technicians</div>
-                  </div>
+                  <a
+                    href="tel:+923491988224"
+                    className="p-3 sm:p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08] hover:border-[#25D366]/40 transition-colors group block"
+                  >
+                    <div className="text-[10px] font-mono text-[#94A3B8] uppercase group-hover:text-[#25D366] transition-colors">Direct Dispatch</div>
+                    <div className="text-sm sm:text-base font-bold text-[#F8FAFC] mt-0.5 group-hover:text-[#25D366] transition-colors">0349 1988224</div>
+                    <div className="text-[10px] text-[#25D366]">Tap to Call</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -303,17 +317,24 @@ export default function Hero() {
 
             {/* Pillar 3 */}
             <div className="flex items-center gap-3.5 pt-3 md:pt-0 md:pl-6">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] flex-shrink-0">
-                <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-[#F8FAFC] uppercase tracking-wide">
-                  Direct WhatsApp
-                </h3>
-                <p className="text-xs text-[#94A3B8]">
-                  Instant assistance & fast setup
-                </p>
-              </div>
+              <a
+                href="https://wa.me/923491988224"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3.5 group"
+              >
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-[#F8FAFC] uppercase tracking-wide group-hover:text-[#25D366] transition-colors">
+                    Direct WhatsApp
+                  </h3>
+                  <p className="text-xs text-[#94A3B8]">
+                    Instant assistance & fast setup
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
         </div>

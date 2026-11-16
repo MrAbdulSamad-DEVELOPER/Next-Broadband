@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Check, Sparkles } from "lucide-react";
+import { MessageCircle, Check, Sparkles, Smartphone, Users, Gamepad2, ArrowRight } from "lucide-react";
 
 interface PackagePlan {
   speed: string;
@@ -13,6 +13,31 @@ interface PackagePlan {
 
 export default function Packages() {
   const [activeTab, setActiveTab] = useState<"all" | "fiber" | "wireless">("all");
+
+  const speedGuides = [
+    {
+      title: "Light Use",
+      usage: "1–3 Mobiles, Browsing & WhatsApp",
+      recommended: "6–8 Mbps",
+      icon: Smartphone,
+      accent: "border-[#00E5FF]/20 hover:border-[#00E5FF]/50",
+    },
+    {
+      title: "Family & Remote Work",
+      usage: "HD Streaming, Zoom & Multiple Phones",
+      recommended: "10–16 Mbps",
+      icon: Users,
+      accent: "border-[#00E5FF]/40 hover:border-[#00E5FF]/70 shadow-lg shadow-[#00E5FF]/10",
+      featured: true,
+    },
+    {
+      title: "Heavy Gaming & Offices",
+      usage: "4K Streaming, Low Latency & Multi-Device",
+      recommended: "20–30 Mbps",
+      icon: Gamepad2,
+      accent: "border-[#00E5FF]/20 hover:border-[#00E5FF]/50",
+    },
+  ];
 
   const packages: PackagePlan[] = [
     {
@@ -178,6 +203,46 @@ Please confirm availability and installation details.`;
           </div>
         </div>
 
+        {/* 3-Card "Help Me Choose" Quick Speed Guide */}
+        <div className="mb-12">
+          <div className="text-center mb-6">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#00E5FF]">
+              Speed Recommendation Guide
+            </span>
+            <h3 className="text-lg sm:text-xl font-bold text-[#F8FAFC] mt-1">
+              Need Help Deciding? Choose By Usage
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+            {speedGuides.map((guide, idx) => {
+              const Icon = guide.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`p-5 sm:p-6 rounded-2xl bg-[#111827] border ${guide.accent} transition-all duration-300 hover:-translate-y-1`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-[#0A0F1C] border border-white/[0.08] flex items-center justify-center text-[#00E5FF]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30 font-mono">
+                      {guide.recommended}
+                    </span>
+                  </div>
+
+                  <h4 className="text-base font-bold text-[#F8FAFC] mb-1">
+                    {guide.title}
+                  </h4>
+                  <p className="text-xs text-[#94A3B8] leading-relaxed">
+                    {guide.usage}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* 8 Packages Grid: 4 columns desktop, 2 columns tablet, 1 column mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {packages.map((pkg) => {
@@ -210,8 +275,14 @@ Please confirm availability and installation details.`;
                     </span>
                   </div>
 
-                  <div className="text-xs text-[#94A3B8] font-medium mb-5 min-h-[32px]">
+                  <div className="text-xs text-[#94A3B8] font-medium mb-3 min-h-[32px]">
                     {pkg.idealFor}
+                  </div>
+
+                  {/* Value Highlight Badge */}
+                  <div className="mb-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#00E5FF]/10 border border-[#00E5FF]/25 text-[10px] font-mono text-[#00E5FF]">
+                    <Sparkles className="w-3 h-3 text-[#00E5FF] flex-shrink-0" />
+                    <span>Fast Setup • Direct Engineer Support</span>
                   </div>
 
                   {/* Pricing: CONTACT FOR PRICE */}

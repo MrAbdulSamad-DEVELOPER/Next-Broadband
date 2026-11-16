@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nextbroadband.pk"),
-  title: "NEXT BROADBAND — Premium High-Speed Internet Connectivity",
+  title: "Next Broadband — High-Speed Fiber Optic & Wireless Internet Provider",
   description:
-    "Experience reliable, high-speed fiber optic and wireless internet solutions for homes, offices, and enterprises with Next Broadband.",
+    "Next Broadband provides high-speed optical fiber and wireless internet solutions across residential sectors and commercial markets. 6 Mbps to 30 Mbps plans, ultra-low latency, and direct WhatsApp engineer dispatch.",
   keywords: [
     "Next Broadband",
     "Internet Service Provider",
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "Wireless Internet",
     "Business Internet",
     "High Speed Broadband",
+    "Next Broadband Packages",
   ],
   authors: [{ name: "Next Broadband" }],
   icons: {
