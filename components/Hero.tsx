@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity, Wifi } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity } from "lucide-react";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -14,13 +14,13 @@ export default function Hero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
+    let width = (canvas.width = canvas.offsetWidth || 300);
+    let height = (canvas.height = canvas.offsetHeight || 200);
 
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
+      width = canvas.width = canvas.offsetWidth || 300;
+      height = canvas.height = canvas.offsetHeight || 200;
     };
     window.addEventListener("resize", handleResize);
 
@@ -33,7 +33,7 @@ export default function Hero() {
       pulse: number;
     }
 
-    const nodeCount = 32;
+    const nodeCount = 28;
     const nodes: Node[] = [];
 
     for (let i = 0; i < nodeCount; i++) {
@@ -75,7 +75,7 @@ export default function Hero() {
         ctx.arc(node.x, node.y, node.radius * glow, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 229, 255, ${0.5 * glow})`;
         ctx.shadowColor = "#00E5FF";
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 8;
         ctx.fill();
         ctx.shadowBlur = 0;
 
@@ -85,8 +85,8 @@ export default function Hero() {
           const dy = other.y - node.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 130) {
-            const alpha = (1 - dist / 130) * 0.22;
+          if (dist < 120) {
+            const alpha = (1 - dist / 120) * 0.2;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
@@ -94,7 +94,7 @@ export default function Hero() {
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            if (Math.random() < 0.001 && pulses.length < 8) {
+            if (Math.random() < 0.001 && pulses.length < 6) {
               pulses.push({
                 nodeA: i,
                 nodeB: j,
@@ -123,10 +123,10 @@ export default function Hero() {
           const py = nA.y + (nB.y - nA.y) * pulse.progress;
 
           ctx.beginPath();
-          ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+          ctx.arc(px, py, 2.2, 0, Math.PI * 2);
           ctx.fillStyle = "#FFFFFF";
           ctx.shadowColor = "#00E5FF";
-          ctx.shadowBlur = 14;
+          ctx.shadowBlur = 12;
           ctx.fill();
           ctx.shadowBlur = 0;
         }
@@ -146,59 +146,60 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-32 pb-16 overflow-hidden bg-[#0A0F1C] bg-tech-grid"
+      className="relative pt-24 sm:pt-32 pb-12 sm:pb-16 overflow-hidden bg-[#0A0F1C] bg-tech-grid"
     >
-      {/* Background Radial Glow */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[650px] h-[400px] bg-[#00E5FF]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[450px] h-[300px] bg-[#00E5FF]/10 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Soft Glows with Safe Overflow Limits */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[400px] bg-[#00E5FF]/10 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[250px] sm:w-[450px] h-[250px] sm:h-[300px] bg-[#00E5FF]/10 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Modern Split Hero: Headline + CTAs on Left, Fiber Graphic Card on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center mb-16">
-          {/* Left Column: Headline & Action Buttons */}
-          <div className="lg:col-span-7 text-left">
+        {/* Split Hero: 2-column on desktop (lg:grid-cols-12), stacked on mobile/tablet */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center mb-12 sm:mb-16">
+          {/* Headline & CTAs (Left Column on Desktop, Centered on Mobile/Tablet) */}
+          <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
             {/* Tagline Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] mb-6 backdrop-blur-md shadow-sm">
-              <Zap className="w-3.5 h-3.5 text-[#00E5FF] animate-pulse" />
-              <span>Next-Generation Internet Service Provider</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111827] border border-white/[0.08] text-[11px] sm:text-xs font-semibold text-[#00E5FF] mb-5 sm:mb-6 backdrop-blur-md shadow-sm max-w-full">
+              <Zap className="w-3.5 h-3.5 text-[#00E5FF] animate-pulse flex-shrink-0" />
+              <span className="truncate">Next-Generation Internet Service Provider</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F8FAFC] uppercase leading-[1.08] mb-6">
+            {/* Main Headline with fluid typography */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-[#F8FAFC] uppercase leading-[1.1] mb-5 sm:mb-6 break-words">
               Power Your World.
               <br />
               <span className="text-gradient-electric">Connect Beyond Limits.</span>
             </h1>
 
             {/* Supporting Text */}
-            <p className="max-w-xl text-base sm:text-lg text-[#94A3B8] font-normal leading-relaxed mb-8">
+            <p className="max-w-xl text-sm sm:text-base lg:text-lg text-[#94A3B8] font-normal leading-relaxed mb-8">
               Experience reliable internet connectivity with Next Broadband. High-speed
               fiber optic and wireless internet solutions for homes, offices and
               businesses.
             </p>
 
-            {/* Dual CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            {/* Dual CTA Buttons: Full-width stacked on mobile, aligned on sm+ */}
+            <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-8">
               <Link
                 href="#packages"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base text-[#0A0F1C] bg-[#00E5FF] hover:bg-[#33ebff] shadow-lg shadow-[#00E5FF]/25 border border-[#00E5FF] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-[#0A0F1C] bg-[#00E5FF] hover:bg-[#33ebff] shadow-lg shadow-[#00E5FF]/25 border border-[#00E5FF] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center min-h-[48px]"
               >
                 <span>Explore Internet Plans</span>
-                <ArrowRight className="w-4 h-4 text-[#0A0F1C]" />
+                <ArrowRight className="w-4 h-4 text-[#0A0F1C] flex-shrink-0" />
               </Link>
 
               <a
                 href="https://wa.me/923491988224?text=Hello%20Next%20Broadband!%20I%20am%20interested%20in%20a%20new%20internet%20connection.%20Please%20provide%20pricing%20and%20coverage%20details."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-[#25D366]/25 border border-[#25D366]/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-[#25D366]/25 border border-[#25D366]/40 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center min-h-[48px]"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <MessageCircle className="w-4 h-4 fill-white flex-shrink-0" />
                 <span>Contact on WhatsApp</span>
               </a>
             </div>
 
-            <div className="flex items-center gap-6 text-xs text-[#94A3B8] font-mono">
+            {/* Status indicators */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-[#94A3B8] font-mono">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-ping" />
                 <span>Optical Core Active</span>
@@ -210,18 +211,18 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Fiber-Optic Telemetry & Visual Graphic */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl bg-[#111827] border border-white/[0.08] p-6 sm:p-8 shadow-2xl shadow-black/70 overflow-hidden">
-              {/* Subtle Internal Canvas */}
+          {/* Right Column: Fiber-Optic Telemetry Card */}
+          <div className="lg:col-span-5 relative w-full mt-6 lg:mt-0">
+            <div className="relative rounded-3xl bg-[#111827] border border-white/[0.08] p-5 sm:p-7 lg:p-8 shadow-2xl shadow-black/70 overflow-hidden">
+              {/* Internal Canvas */}
               <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
               />
 
-              <div className="relative z-10 space-y-6">
+              <div className="relative z-10 space-y-4 sm:space-y-6">
                 {/* Header Badge */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+                <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2.5">
                     <div className="p-2 rounded-lg bg-[#00E5FF]/10 text-[#00E5FF]">
                       <Activity className="w-4 h-4" />
@@ -237,11 +238,11 @@ export default function Hero() {
                 </div>
 
                 {/* Central Speeds Banner */}
-                <div className="p-4 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] text-center">
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8] mb-1">
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] text-center">
+                  <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#94A3B8] mb-1">
                     Available Bandwidth Tiers
                   </div>
-                  <div className="text-3xl sm:text-4xl font-black text-[#00E5FF] tracking-tight drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-black text-[#00E5FF] tracking-tight drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]">
                     6 Mbps — 30 Mbps
                   </div>
                   <div className="text-[11px] text-[#94A3B8] mt-1">
@@ -249,16 +250,16 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Key Metrics */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
+                {/* Key Metrics Grid */}
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                  <div className="p-3 sm:p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
                     <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Response Time</div>
-                    <div className="text-base font-bold text-[#F8FAFC] mt-0.5">&lt; 5ms Latency</div>
+                    <div className="text-sm sm:text-base font-bold text-[#F8FAFC] mt-0.5">&lt; 5ms Latency</div>
                     <div className="text-[10px] text-[#00E5FF]">Ultra-Low Jitter</div>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
+                  <div className="p-3 sm:p-3.5 rounded-xl bg-[#0A0F1C]/80 border border-white/[0.08]">
                     <div className="text-[10px] font-mono text-[#94A3B8] uppercase">Direct Dispatch</div>
-                    <div className="text-base font-bold text-[#F8FAFC] mt-0.5">0349 1988224</div>
+                    <div className="text-sm sm:text-base font-bold text-[#F8FAFC] mt-0.5">0349 1988224</div>
                     <div className="text-[10px] text-[#25D366]">Local Technicians</div>
                   </div>
                 </div>
@@ -268,12 +269,12 @@ export default function Hero() {
         </div>
 
         {/* 3-Column Glassmorphism Quick-Trust Bar directly below the Hero */}
-        <div className="rounded-2xl bg-[#111827]/80 backdrop-blur-xl border border-white/[0.08] p-4 sm:p-6 shadow-2xl">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#111827]/80 backdrop-blur-xl border border-white/[0.08] p-4 sm:p-6 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
             {/* Pillar 1 */}
-            <div className="flex items-center gap-4 pt-3 md:pt-0">
-              <div className="w-12 h-12 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
-                <Zap className="w-6 h-6" />
+            <div className="flex items-center gap-3.5 pt-3 md:pt-0">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
+                <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#F8FAFC] uppercase tracking-wide">
@@ -286,9 +287,9 @@ export default function Hero() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="flex items-center gap-4 pt-3 md:pt-0 md:pl-6">
-              <div className="w-12 h-12 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
-                <Radio className="w-6 h-6" />
+            <div className="flex items-center gap-3.5 pt-3 md:pt-0 md:pl-6">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
+                <Radio className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#F8FAFC] uppercase tracking-wide">
@@ -301,9 +302,9 @@ export default function Hero() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="flex items-center gap-4 pt-3 md:pt-0 md:pl-6">
-              <div className="w-12 h-12 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] flex-shrink-0">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="flex items-center gap-3.5 pt-3 md:pt-0 md:pl-6">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] flex-shrink-0">
+                <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#F8FAFC] uppercase tracking-wide">

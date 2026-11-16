@@ -18,6 +18,8 @@ html {
   background-color: #0A0F1C;
   color: #F8FAFC;
   color-scheme: dark;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -25,6 +27,7 @@ body {
   color: #F8FAFC;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
   min-height: 100vh;
 }
 
