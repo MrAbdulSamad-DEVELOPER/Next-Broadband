@@ -19,7 +19,7 @@ export default function AboutUs() {
                   width={144}
                   height={144}
                   priority
-                  className="object-contain filter drop-shadow-[0_0_20px_rgba(0,229,255,0.25)]"
+                  className="object-contain rounded-2xl filter drop-shadow-[0_0_25px_rgba(0,229,255,0.35)]"
                 />
               </div>
               <h3 className="text-lg sm:text-xl font-extrabold text-[#F8FAFC] tracking-wider uppercase mb-1">

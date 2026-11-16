@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Next Broadband" }],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: "/logo.png",
   },
   openGraph: {
@@ -55,7 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="bg-background text-text-primary antialiased selection:bg-electric-cyan/20 selection:text-electric-cyan">
         {children}

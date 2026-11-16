@@ -23,7 +23,7 @@ export default function Footer() {
                   alt="Next Broadband Logo"
                   width={44}
                   height={44}
-                  className="object-contain"
+                  className="object-contain rounded-lg"
                 />
               </div>
               <div className="flex flex-col">

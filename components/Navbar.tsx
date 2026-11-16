@@ -71,7 +71,7 @@ export default function Navbar() {
                   width={44}
                   height={44}
                   priority
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-lg"
                 />
               </div>
               <div className="flex flex-col">
