@@ -49,17 +49,17 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative py-24 bg-background border-t border-border">
+    <section className="relative py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-xs font-semibold text-electric-cyan uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Common Questions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
             Frequently Asked Questions
           </h2>
-          <p className="mt-4 text-base text-text-secondary">
+          <p className="mt-4 text-base text-[#94A3B8]">
             Everything you need to know about our connectivity, installation, and support.
           </p>
         </div>
@@ -70,19 +70,19 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-card border border-border hover:border-electric-cyan/30 transition-all overflow-hidden"
+                className="rounded-2xl bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/40 transition-all overflow-hidden"
               >
                 <button
                   onClick={() => toggle(idx)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-bold text-white pr-4">
+                  <span className="text-base sm:text-lg font-bold text-[#F8FAFC] pr-4">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center text-text-secondary transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-electric-cyan border-electric-cyan/40" : ""
+                    className={`w-8 h-8 rounded-full bg-[#0A0F1C] border border-white/[0.08] flex items-center justify-center text-[#94A3B8] transition-transform duration-200 flex-shrink-0 ${
+                      isOpen ? "rotate-180 text-[#00E5FF] border-[#00E5FF]/40" : ""
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -90,7 +90,7 @@ export default function FAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-text-secondary leading-relaxed border-t border-border/40 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#94A3B8] leading-relaxed border-t border-white/[0.08] animate-in fade-in duration-200">
                     {faq.answer}
                   </div>
                 )}

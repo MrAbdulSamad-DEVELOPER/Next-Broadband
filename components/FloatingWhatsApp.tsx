@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 export default function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
@@ -36,12 +36,12 @@ export default function FloatingWhatsApp() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-[#25D366]/30 transition-all duration-300 transform hover:scale-105 active:scale-95"
+          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-[#25D366]/30 border border-[#25D366]/40 transition-all duration-300 transform hover:scale-105 active:scale-95"
           aria-label="Direct WhatsApp Chat"
         >
-          <MessageCircle className="w-5 h-5 fill-current" />
+          <MessageCircle className="w-5 h-5 fill-white" />
           <span className="text-xs font-bold tracking-wide">
-            Chat with us
+            Chat on WhatsApp
           </span>
         </a>
       </aside>
@@ -53,12 +53,12 @@ export default function FloatingWhatsApp() {
           visible ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="bg-[#07090E]/95 backdrop-blur-xl border-t border-border p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
+        <div className="bg-[#0A0F1C]/95 backdrop-blur-xl border-t border-white/[0.08] p-3 px-4 flex items-center justify-between gap-3 shadow-2xl">
           <div className="flex flex-col">
-            <span className="text-xs font-bold text-white uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#F8FAFC] uppercase tracking-wider">
               Next Broadband
             </span>
-            <span className="text-[11px] text-text-secondary font-mono">
+            <span className="text-[11px] text-[#94A3B8] font-mono">
               0349 1988224
             </span>
           </div>
@@ -67,10 +67,10 @@ export default function FloatingWhatsApp() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] shadow-md shadow-[#25D366]/30"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-md shadow-[#25D366]/30 border border-[#25D366]/40"
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
-            <span>WhatsApp</span>
+            <MessageCircle className="w-4 h-4 fill-white" />
+            <span>Chat on WhatsApp</span>
           </a>
         </div>
       </aside>

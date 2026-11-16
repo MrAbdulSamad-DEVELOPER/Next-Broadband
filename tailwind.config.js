@@ -8,16 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#07090E",
-        secondary: "#0D1420",
-        card: "#111B2B",
-        "card-hover": "#152236",
-        "electric-blue": "#4169FF",
-        "electric-cyan": "#42DFFF",
-        "accent-red": "#E83D5B",
-        "text-primary": "#F5F7FC",
-        "text-secondary": "#9AA8BC",
-        border: "rgba(150, 180, 220, 0.14)",
+        background: "#0A0F1C",
+        secondary: "#0E1526",
+        card: "#111827",
+        "card-hover": "#162032",
+        "electric-cyan": "#00E5FF",
+        "fiber-cyan": "#00E5FF",
+        "whatsapp-green": "#25D366",
+        "text-primary": "#F8FAFC",
+        "text-secondary": "#94A3B8",
+        border: "rgba(255, 255, 255, 0.08)",
       },
       fontFamily: {
         sans: [
@@ -31,9 +31,9 @@ module.exports = {
         ],
       },
       boxShadow: {
-        glow: "0 0 25px -5px rgba(66, 223, 255, 0.25)",
-        "glow-blue": "0 0 30px -5px rgba(65, 105, 255, 0.3)",
-        card: "0 10px 30px -10px rgba(0, 0, 0, 0.5)",
+        glow: "0 0 25px -5px rgba(0, 229, 255, 0.35)",
+        "glow-cyan": "0 0 35px -5px rgba(0, 229, 255, 0.4)",
+        card: "0 10px 30px -10px rgba(0, 0, 0, 0.6)",
       },
     },
   },

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Check, Zap, Sparkles } from "lucide-react";
+import { MessageCircle, Check, Sparkles } from "lucide-react";
 
 interface PackagePlan {
   speed: string;
@@ -128,49 +128,49 @@ Please confirm availability and installation details.`;
   };
 
   return (
-    <section id="packages" className="relative py-24 bg-background">
+    <section id="packages" className="relative py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-card border border-border text-xs font-semibold text-electric-cyan uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
             Official Speed Tiers
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
             Internet Packages
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-text-secondary">
+          <p className="mt-4 text-base sm:text-lg text-[#94A3B8]">
             Select your preferred speed tier. All packages are deployed across our high-reliability
             network with direct WhatsApp assistance.
           </p>
 
-          {/* Connection Type Filters */}
-          <div className="inline-flex items-center p-1.5 rounded-xl bg-card border border-border mt-8">
+          {/* Connection Type Filters with Electric Fiber Cyan active highlights */}
+          <div className="inline-flex items-center p-1.5 rounded-xl bg-[#111827] border border-white/[0.08] mt-8">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "all"
-                  ? "bg-electric-blue text-white shadow-md shadow-electric-blue/30"
-                  : "text-text-secondary hover:text-white"
+                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-md shadow-[#00E5FF]/30"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
               }`}
             >
               All Packages
             </button>
             <button
               onClick={() => setActiveTab("fiber")}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "fiber"
-                  ? "bg-electric-blue text-white shadow-md shadow-electric-blue/30"
-                  : "text-text-secondary hover:text-white"
+                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-md shadow-[#00E5FF]/30"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
               }`}
             >
               Fiber Optic
             </button>
             <button
               onClick={() => setActiveTab("wireless")}
-              className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                 activeTab === "wireless"
-                  ? "bg-electric-blue text-white shadow-md shadow-electric-blue/30"
-                  : "text-text-secondary hover:text-white"
+                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-md shadow-[#00E5FF]/30"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
               }`}
             >
               Wireless
@@ -187,39 +187,39 @@ Please confirm availability and installation details.`;
                 key={pkg.speed}
                 className={`relative rounded-2xl flex flex-col justify-between transition-all duration-300 p-6 ${
                   isFeatured
-                    ? "bg-[#142033] border-2 border-electric-cyan/70 shadow-2xl shadow-electric-cyan/10 transform lg:-translate-y-2"
-                    : "bg-card border border-border hover:border-electric-cyan/40 hover:bg-[#131d2e] shadow-lg shadow-black/40"
+                    ? "bg-gradient-to-b from-[#111827] via-[#16253b] to-[#111827] border-2 border-[#00E5FF] shadow-[0_0_35px_rgba(0,229,255,0.28)] transform lg:-translate-y-2"
+                    : "bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/50 hover:bg-[#152033] shadow-lg shadow-black/40"
                 }`}
               >
-                {/* Featured Badge */}
+                {/* Prominent Featured Tier Badge */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-electric-blue to-electric-cyan text-[11px] font-bold text-white uppercase tracking-wider shadow-md flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#00E5FF] text-[11px] font-extrabold text-[#0A0F1C] uppercase tracking-wider shadow-lg shadow-[#00E5FF]/40 flex items-center gap-1.5 border border-white/20">
+                    <Sparkles className="w-3.5 h-3.5 fill-[#0A0F1C]" />
                     <span>Featured Tier</span>
                   </div>
                 )}
 
                 <div>
-                  {/* Speed Header */}
+                  {/* Speed Header with Electric Fiber Cyan (#00E5FF) Speed Numbers */}
                   <div className="flex items-baseline justify-between mb-2">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#00E5FF] drop-shadow-[0_0_12px_rgba(0,229,255,0.35)]">
                       {pkg.speed}
                     </span>
-                    <span className="text-xs font-mono text-electric-cyan px-2 py-0.5 rounded bg-electric-cyan/10 border border-electric-cyan/20">
+                    <span className="text-[11px] font-mono text-[#00E5FF] px-2 py-0.5 rounded bg-[#00E5FF]/10 border border-[#00E5FF]/30">
                       High Speed
                     </span>
                   </div>
 
-                  <div className="text-xs text-text-secondary font-medium mb-5 min-h-[32px]">
+                  <div className="text-xs text-[#94A3B8] font-medium mb-5 min-h-[32px]">
                     {pkg.idealFor}
                   </div>
 
                   {/* Pricing Label: CONTACT FOR PRICE */}
-                  <div className="p-3.5 rounded-xl bg-background/80 border border-border/80 mb-6 text-center">
-                    <span className="text-xs uppercase tracking-wider text-text-secondary block font-mono">
+                  <div className="p-3.5 rounded-xl bg-[#0A0F1C] border border-white/[0.08] mb-6 text-center">
+                    <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] block font-mono">
                       Pricing
                     </span>
-                    <span className="text-sm font-bold text-white tracking-wider uppercase text-gradient-cyan">
+                    <span className="text-sm font-extrabold text-[#F8FAFC] tracking-wider uppercase text-gradient-cyan">
                       CONTACT FOR PRICE
                     </span>
                   </div>
@@ -227,27 +227,23 @@ Please confirm availability and installation details.`;
                   {/* Package Specs */}
                   <ul className="space-y-2.5 mb-8">
                     {pkg.specs.map((spec, sIdx) => (
-                      <li key={sIdx} className="flex items-start gap-2 text-xs text-text-secondary">
-                        <Check className="w-3.5 h-3.5 text-electric-cyan mt-0.5 flex-shrink-0" />
-                        <span>{spec}</span>
+                      <li key={sIdx} className="flex items-start gap-2 text-xs text-[#94A3B8]">
+                        <Check className="w-3.5 h-3.5 text-[#00E5FF] mt-0.5 flex-shrink-0" />
+                        <span className="text-[#94A3B8]">{spec}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* WhatsApp Action Button */}
+                {/* WhatsApp & Conversion Buttons: WhatsApp Emerald (#25D366) with crisp white bold text */}
                 <div className="pt-2">
                   <a
                     href={getWhatsAppUrl(pkg)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                      isFeatured
-                        ? "bg-gradient-to-r from-electric-blue to-electric-cyan text-white hover:opacity-95 shadow-lg shadow-electric-cyan/20"
-                        : "bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10 hover:border-electric-cyan/40"
-                    }`}
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-[#25D366]/25 border border-[#25D366]/40 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                    <MessageCircle className="w-4 h-4 fill-white" />
                     <span>Inquire Package</span>
                   </a>
                 </div>
@@ -257,7 +253,7 @@ Please confirm availability and installation details.`;
         </div>
 
         {/* Note below packages */}
-        <div className="mt-12 text-center text-xs text-text-secondary max-w-xl mx-auto">
+        <div className="mt-12 text-center text-xs text-[#94A3B8] max-w-xl mx-auto">
           Need custom commercial bandwidth or dedicated corporate lines? Contact our technical team
           directly via WhatsApp for immediate assessment.
         </div>

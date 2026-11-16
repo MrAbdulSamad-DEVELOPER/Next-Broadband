@@ -44,16 +44,16 @@ export default function Navbar() {
       {/* Top Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 right-0 h-[2px] z-50 pointer-events-none bg-transparent">
         <div
-          className="h-full bg-gradient-to-r from-electric-blue via-electric-cyan to-white transition-all duration-150 ease-out"
+          className="h-full bg-gradient-to-r from-[#00E5FF] via-[#00E5FF] to-white shadow-[0_0_10px_#00E5FF] transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Navbar with Frosted Glass Effect */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#07090E]/90 backdrop-blur-xl border-b border-border shadow-2xl py-3.5"
+            ? "bg-[#0A0F1C]/85 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl py-3.5"
             : "bg-transparent py-5"
         }`}
       >
@@ -75,10 +75,10 @@ export default function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold tracking-wider text-base sm:text-lg text-text-primary group-hover:text-electric-cyan transition-colors">
+                <span className="font-extrabold tracking-wider text-base sm:text-lg text-[#F8FAFC] group-hover:text-[#00E5FF] transition-colors">
                   NEXT BROADBAND
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-text-secondary">
+                <span className="text-[10px] uppercase tracking-widest text-[#94A3B8] font-mono">
                   ISP Solutions
                 </span>
               </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="px-3.5 py-1.5 text-sm font-medium text-text-secondary hover:text-white rounded-lg hover:bg-white/[0.04] transition-all duration-200"
+                  className="px-3.5 py-1.5 text-sm font-medium text-[#94A3B8] hover:text-[#F8FAFC] rounded-lg hover:bg-white/[0.04] transition-all duration-200"
                 >
                   {link.name}
                 </Link>
@@ -103,11 +103,11 @@ export default function Navbar() {
                 href="https://wa.me/923491988224?text=Hello%20Next%20Broadband!%20I%20am%20interested%20in%20a%20new%20internet%20connection.%20Please%20share%20package%20details."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#20bd5a] hover:to-[#0f7a6e] shadow-lg shadow-[#25D366]/20 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-[#25D366]/25 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp</span>
-                <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>Chat on WhatsApp</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-90" />
               </a>
             </div>
 
@@ -115,11 +115,11 @@ export default function Navbar() {
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-text-secondary hover:text-white hover:bg-white/[0.06] focus:outline-none"
+                className="p-2 rounded-lg text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.06] focus:outline-none"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="w-6 h-6 text-electric-cyan" />
+                  <X className="w-6 h-6 text-[#00E5FF]" />
                 ) : (
                   <Menu className="w-6 h-6" />
                 )}
@@ -130,27 +130,27 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#07090E]/98 border-b border-border px-4 pt-3 pb-6 space-y-2 backdrop-blur-2xl animate-in slide-in-from-top duration-200">
+          <div className="md:hidden bg-[#0A0F1C]/95 border-b border-white/[0.08] px-4 pt-3 pb-6 space-y-2 backdrop-blur-2xl animate-in slide-in-from-top duration-200">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={handleLinkClick}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-text-secondary hover:text-white hover:bg-white/[0.05] transition-colors"
+                className="block px-3 py-2.5 rounded-lg text-base font-medium text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.05] transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-3 border-t border-border/60">
+            <div className="pt-3 border-t border-white/[0.08]">
               <a
                 href="https://wa.me/923491988224?text=Hello%20Next%20Broadband!%20I%20am%20interested%20in%20a%20new%20internet%20connection."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#25D366] to-[#128C7E] shadow-md shadow-[#25D366]/20"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-md shadow-[#25D366]/20"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Contact on WhatsApp</span>
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Zap, Radio, Building2, CheckCircle2, ArrowRight } from "lucide-react";
+import { Zap, Radio, Building2, CheckCircle2, MessageCircle, ArrowRight } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -20,8 +20,8 @@ export default function Services() {
       ],
       whatsappMsg:
         "Hello Next Broadband! I am interested in your Fiber Optic Internet service. Please share details and availability.",
-      accent: "from-electric-cyan/20 to-transparent",
-      badgeColor: "text-electric-cyan bg-electric-cyan/10 border-electric-cyan/20",
+      accent: "from-[#00E5FF]/30 to-transparent",
+      badgeColor: "text-[#00E5FF] bg-[#00E5FF]/10 border-[#00E5FF]/30",
     },
     {
       id: "wireless",
@@ -38,8 +38,8 @@ export default function Services() {
       ],
       whatsappMsg:
         "Hello Next Broadband! I am interested in your Wireless Internet service. Please share details and availability.",
-      accent: "from-electric-blue/20 to-transparent",
-      badgeColor: "text-electric-blue bg-electric-blue/10 border-electric-blue/20",
+      accent: "from-[#00E5FF]/30 to-transparent",
+      badgeColor: "text-[#00E5FF] bg-[#00E5FF]/10 border-[#00E5FF]/30",
     },
     {
       id: "business",
@@ -56,23 +56,23 @@ export default function Services() {
       ],
       whatsappMsg:
         "Hello Next Broadband! I am inquiring about Business Connectivity for our office/commercial premises. Please share available packages.",
-      accent: "from-[#43DFFF]/20 to-transparent",
-      badgeColor: "text-white bg-white/10 border-white/20",
+      accent: "from-[#00E5FF]/30 to-transparent",
+      badgeColor: "text-[#00E5FF] bg-[#00E5FF]/10 border-[#00E5FF]/30",
     },
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-secondary/50 border-t border-border">
+    <section id="services" className="relative py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border text-xs font-semibold text-electric-cyan uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
             Internet Technologies
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
             Engineered For Every Need
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-text-secondary">
+          <p className="mt-4 text-base sm:text-lg text-[#94A3B8]">
             Next Broadband delivers robust connectivity options tailored to your location,
             usage volume, and operational requirements.
           </p>
@@ -85,7 +85,7 @@ export default function Services() {
             return (
               <div
                 key={srv.id}
-                className="relative rounded-2xl bg-card border border-border hover:border-electric-cyan/40 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/60 group"
+                className="relative rounded-2xl bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/40 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/60 group"
               >
                 {/* Subtle Top Glow Gradient */}
                 <div
@@ -94,7 +94,7 @@ export default function Services() {
 
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-secondary border border-border flex items-center justify-center text-electric-cyan group-hover:scale-110 group-hover:border-electric-cyan/50 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-[#0A0F1C] border border-white/[0.08] flex items-center justify-center text-[#00E5FF] group-hover:scale-110 group-hover:border-[#00E5FF]/50 transition-all duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
                     <span
@@ -104,35 +104,38 @@ export default function Services() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-electric-cyan transition-colors">
+                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#00E5FF] transition-colors">
                     {srv.title}
                   </h3>
 
-                  <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                  <p className="text-sm text-[#94A3B8] leading-relaxed mb-6">
                     {srv.description}
                   </p>
 
                   <ul className="space-y-2.5 mb-8">
                     {srv.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-center gap-2.5 text-xs text-text-primary/90">
-                        <CheckCircle2 className="w-4 h-4 text-electric-cyan flex-shrink-0" />
+                      <li key={idx} className="flex items-center gap-2.5 text-xs text-[#F8FAFC]/90">
+                        <CheckCircle2 className="w-4 h-4 text-[#00E5FF] flex-shrink-0" />
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t border-border/60">
+                <div className="pt-4 border-t border-white/[0.08]">
                   <a
                     href={`https://wa.me/923491988224?text=${encodeURIComponent(
                       srv.whatsappMsg
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs font-semibold text-text-primary bg-secondary hover:bg-white/[0.08] border border-border hover:border-electric-cyan/30 transition-colors group/btn"
+                    className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-md shadow-[#25D366]/20 transition-all group/btn"
                   >
-                    <span>Inquire via WhatsApp</span>
-                    <ArrowRight className="w-4 h-4 text-electric-cyan transition-transform group-hover/btn:translate-x-1" />
+                    <span className="flex items-center gap-2">
+                      <MessageCircle className="w-4 h-4 fill-white" />
+                      Inquire on WhatsApp
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-white transition-transform group-hover/btn:translate-x-1" />
                   </a>
                 </div>
               </div>
