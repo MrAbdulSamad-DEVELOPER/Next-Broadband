@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://nextbroadband.pk/sitemap.xml",
+    sitemap: "https://nextbroadband.vercel.app/sitemap.xml",
   };
 }

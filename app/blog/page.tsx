@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Internet & Tech Guides | Next Broadband Pakistan Blog",
   description:
     "Expert broadband and networking guides for Pakistan. Learn how to reduce gaming ping, choose between fiber and wireless, boost home Wi-Fi signals, and select the right internet speed.",
+  alternates: {
+    canonical: "https://nextbroadband.vercel.app/blog",
+  },
   keywords: [
     "Pakistan broadband guides",
     "fiber optic vs wireless pakistan",
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
     title: "Next Broadband Internet & Tech Guides — Pakistan",
     description:
       "Expert broadband advice, speed recommendations, gaming latency tips, and Wi-Fi optimization guides from Next Broadband.",
-    url: "https://nextbroadband.pk/blog",
+    url: "https://nextbroadband.vercel.app/blog",
     siteName: "Next Broadband",
     locale: "en_PK",
     type: "website",

@@ -2,11 +2,11 @@ import { MetadataRoute } from "next";
 import { blogPosts } from "../data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://nextbroadband.pk";
+  const baseUrl = "https://nextbroadband.vercel.app";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,

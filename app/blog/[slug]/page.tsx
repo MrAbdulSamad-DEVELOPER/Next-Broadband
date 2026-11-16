@@ -36,10 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Next Broadband Pakistan`,
     description: post.excerpt,
     keywords: [...post.tags, "Pakistan Broadband", "Next Broadband ISP"],
+    alternates: {
+      canonical: `https://nextbroadband.vercel.app/blog/${post.slug}`,
+    },
     openGraph: {
       title: `${post.title} — Next Broadband Pakistan`,
       description: post.excerpt,
-      url: `https://nextbroadband.pk/blog/${post.slug}`,
+      url: `https://nextbroadband.vercel.app/blog/${post.slug}`,
       siteName: "Next Broadband",
       locale: "en_PK",
       type: "article",

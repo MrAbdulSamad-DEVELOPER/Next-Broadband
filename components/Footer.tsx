@@ -79,7 +79,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/blog" className="hover:text-[#00E5FF] transition-colors py-1.5 inline-block min-h-[36px] flex items-center">
-                  Blog & Tech Guides
+                  Guides & Blog
                 </Link>
               </li>
               <li>
