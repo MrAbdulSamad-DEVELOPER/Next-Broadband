@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, Check, Sparkles, Smartphone, Users, Gamepad2, ArrowRight } from "lucide-react";
+import { MessageCircle, Check, Sparkles, Smartphone, Users, Gamepad2, Zap } from "lucide-react";
 
 interface PackagePlan {
   speed: string;
@@ -243,38 +243,49 @@ Please confirm availability and installation details.`;
         </div>
 
         {/* 8 Packages Grid: 4 columns desktop, 2 columns tablet, 1 column mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* pt-5 provides clearance so the 20 Mbps top badge never clips */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch pt-5">
           {packages.map((pkg) => {
             const isFeatured = pkg.featured;
             return (
               <div
                 key={pkg.speed}
-                className={`relative rounded-[20px] p-8 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative h-full rounded-[20px] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 ${
                   isFeatured
-                    ? "bg-[#0F172A] text-white border-2 border-[#2563EB] shadow-[0_20px_50px_-10px_rgba(15,23,42,0.4)] lg:-translate-y-3 hover:-translate-y-4"
-                    : "bg-white text-[#0F172A] border border-[#E2E8F0] shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.14)] hover:-translate-y-1.5"
+                    ? "bg-[#0F172A] text-white border-[1.5px] border-[#2563EB] shadow-[0_16px_36px_-8px_rgba(37,99,235,0.25)] hover:shadow-[0_20px_45px_-8px_rgba(37,99,235,0.35)]"
+                    : "bg-white text-[#0F172A] border border-[#E2E8F0] shadow-[0_12px_32px_-8px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] hover:border-[#CBD5E1]"
                 }`}
               >
-                {/* Prominent Featured Tier Badge on 20 Mbps */}
+                {/* Prominent Featured Tier Badge on 20 Mbps with clearance */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#2563EB] text-[11px] font-extrabold text-white uppercase tracking-wider shadow-md shadow-blue-500/30 flex items-center gap-1.5 whitespace-nowrap">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#2563EB] text-[11px] font-extrabold text-white uppercase tracking-wider shadow-md shadow-blue-500/30 flex items-center gap-1.5 whitespace-nowrap z-10">
                     <Sparkles className="w-3.5 h-3.5 fill-white" />
                     <span>Most Popular Tier</span>
                   </div>
                 )}
 
-                <div>
-                  {/* Speed Header with Space Grotesk Tabular Numerals */}
-                  <div className="flex items-baseline justify-between mb-3">
+                <div className="flex-1 flex flex-col">
+                  {/* Single-Line Speed Typography with HIGH SPEED Pill */}
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+                      <span
+                        className={`font-display font-extrabold text-[2.25rem] leading-none tracking-tight ${
+                          isFeatured ? "text-white" : "text-[#0F172A]"
+                        }`}
+                      >
+                        {pkg.speedNumber}
+                      </span>
+                      <span
+                        className={`text-[1.1rem] font-bold font-sans leading-none ${
+                          isFeatured ? "text-slate-300" : "text-[#64748B]"
+                        }`}
+                      >
+                        Mbps
+                      </span>
+                    </div>
+
                     <span
-                      className={`text-3xl sm:text-4xl font-extrabold font-display tabular-nums tracking-tight ${
-                        isFeatured ? "text-white" : "text-[#0F172A]"
-                      }`}
-                    >
-                      {pkg.speed}
-                    </span>
-                    <span
-                      className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold ${
+                      className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold whitespace-nowrap flex-shrink-0 ${
                         isFeatured
                           ? "bg-blue-500/20 text-[#60A5FA] border border-blue-500/30"
                           : "bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE]"
@@ -284,56 +295,64 @@ Please confirm availability and installation details.`;
                     </span>
                   </div>
 
+                  {/* Subtitle / Ideal For */}
                   <div
-                    className={`text-xs font-medium mb-3 min-h-[32px] ${
+                    className={`text-xs font-medium mb-2 min-h-[32px] ${
                       isFeatured ? "text-slate-300" : "text-[#64748B]"
                     }`}
                   >
                     {pkg.idealFor}
                   </div>
 
-                  {/* Value Highlight Badge */}
+                  {/* Subtle Muted Highlight (Eliminated box-in-box) */}
                   <div
-                    className={`mb-5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono ${
-                      isFeatured
-                        ? "bg-white/10 border border-white/20 text-blue-200"
-                        : "bg-[#F8FAFC] border border-[#E2E8F0] text-[#475569]"
+                    className={`flex items-center gap-1.5 text-xs font-medium mb-5 ${
+                      isFeatured ? "text-blue-300" : "text-[#1D4ED8]"
                     }`}
                   >
-                    <Sparkles className={`w-3 h-3 ${isFeatured ? "text-blue-300" : "text-[#1D4ED8]"} flex-shrink-0`} />
+                    <Zap className="w-3.5 h-3.5 flex-shrink-0" />
                     <span>Fast Setup • Direct Engineer Support</span>
                   </div>
 
-                  {/* Pricing: CONTACT FOR PRICE */}
+                  {/* Clean Horizontal Divider & Minimalist Pricing Typography */}
                   <div
-                    className={`p-4 rounded-2xl mb-6 text-center ${
-                      isFeatured
-                        ? "bg-white/5 border border-white/10"
-                        : "bg-[#F8FAFC] border border-[#E2E8F0]"
+                    className={`pt-4 pb-4 mb-5 border-t ${
+                      isFeatured ? "border-white/10" : "border-[#E2E8F0]"
                     }`}
                   >
-                    <span
-                      className={`text-[10px] uppercase tracking-wider block font-mono mb-0.5 ${
-                        isFeatured ? "text-slate-400" : "text-[#64748B]"
-                      }`}
-                    >
-                      Pricing
-                    </span>
-                    <span
-                      className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase font-heading ${
-                        isFeatured ? "text-white" : "text-[#0F172A]"
-                      }`}
-                    >
-                      CONTACT FOR PRICE
-                    </span>
+                    <div className="flex items-baseline justify-between">
+                      <div>
+                        <span
+                          className={`text-[10px] font-mono uppercase tracking-wider block font-semibold mb-0.5 ${
+                            isFeatured ? "text-slate-400" : "text-[#64748B]"
+                          }`}
+                        >
+                          Pricing
+                        </span>
+                        <span
+                          className={`text-sm sm:text-base font-extrabold tracking-tight uppercase font-heading ${
+                            isFeatured ? "text-white" : "text-[#0F172A]"
+                          }`}
+                        >
+                          CONTACT FOR PRICE
+                        </span>
+                      </div>
+                      <span
+                        className={`text-[11px] font-sans font-medium ${
+                          isFeatured ? "text-slate-400" : "text-[#64748B]"
+                        }`}
+                      >
+                        Monthly & Setup Rates
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Specs List */}
-                  <ul className="space-y-3 mb-8">
+                  {/* Specs List with Flex-1 to push CTA to identical baseline */}
+                  <ul className="space-y-2.5 mb-6 flex-1">
                     {pkg.specs.map((spec, sIdx) => (
                       <li
                         key={sIdx}
-                        className={`flex items-start gap-2.5 text-xs sm:text-sm ${
+                        className={`flex items-start gap-2 text-xs sm:text-[13px] leading-snug ${
                           isFeatured ? "text-slate-200" : "text-[#475569]"
                         }`}
                       >
@@ -348,7 +367,7 @@ Please confirm availability and installation details.`;
                   </ul>
                 </div>
 
-                {/* Sleek Pill Action Button */}
+                {/* Sleek Pill Action Button Aligned at Bottom */}
                 <div className="pt-2">
                   <a
                     href={getWhatsAppUrl(pkg)}
