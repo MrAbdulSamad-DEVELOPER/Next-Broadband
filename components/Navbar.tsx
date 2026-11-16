@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, MessageCircle, ArrowUpRight } from "lucide-react";
@@ -8,20 +8,42 @@ import { Menu, X, MessageCircle, ArrowUpRight } from "lucide-react";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const isScrolledRef = useRef(false);
+  const progressRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let ticking = false;
 
-      const totalHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        setScrollProgress((window.scrollY / totalHeight) * 100);
+    const updateScroll = () => {
+      const scrollY = window.scrollY;
+      const nextScrolled = scrollY > 20;
+
+      if (nextScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = nextScrolled;
+        setIsScrolled(nextScrolled);
+      }
+
+      if (progressRef.current) {
+        const totalHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight > 0) {
+          const progress = Math.min(100, Math.max(0, (scrollY / totalHeight) * 100));
+          progressRef.current.style.width = `${progress}%`;
+        }
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    updateScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -44,8 +66,8 @@ export default function Navbar() {
       {/* Top Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 right-0 h-[2px] z-50 pointer-events-none bg-transparent">
         <div
-          className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#60A5FA] transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
+          ref={progressRef}
+          className="h-full bg-gradient-to-r from-[#1D4ED8] to-[#60A5FA] transition-all duration-75 ease-out w-0"
         />
       </div>
 

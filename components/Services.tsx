@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Zap, Radio, Building2, CheckCircle2, MessageCircle, ArrowRight } from "lucide-react";
 

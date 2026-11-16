@@ -1,21 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MessageCircle, Phone } from "lucide-react";
 
 export default function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
+  const visibleRef = useRef(false);
 
   useEffect(() => {
+    let ticking = false;
+
+    const checkScroll = () => {
+      const nextVisible = window.scrollY > 150;
+      if (nextVisible !== visibleRef.current) {
+        visibleRef.current = nextVisible;
+        setVisible(nextVisible);
+      }
+      ticking = false;
+    };
+
     const handleScroll = () => {
-      if (window.scrollY > 150) {
-        setVisible(true);
-      } else {
-        setVisible(false);
+      if (!ticking) {
+        requestAnimationFrame(checkScroll);
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    checkScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

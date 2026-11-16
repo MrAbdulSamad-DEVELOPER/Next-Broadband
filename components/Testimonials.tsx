@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Star, MessageSquareQuote, CheckCircle, ShieldCheck } from "lucide-react";
 

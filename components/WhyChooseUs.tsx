@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Cpu, Home, Shield, Headphones, Check } from "lucide-react";
 

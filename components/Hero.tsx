@@ -2,27 +2,31 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity, CheckCircle2 } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, Zap, Radio, Activity } from "lucide-react";
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const heroRef = useRef<HTMLElement | null>(null);
 
-  // Optical Packet Visualization
+  // Optical Packet Visualization with IntersectionObserver & Auto-Pause
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let width = (canvas.width = canvas.offsetWidth || 300);
     let height = (canvas.height = canvas.offsetHeight || 200);
+
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const nodeCount = isMobile ? 12 : 22;
 
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = canvas.offsetWidth || 300;
       height = canvas.height = canvas.offsetHeight || 200;
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
 
     interface Node {
       x: number;
@@ -33,16 +37,15 @@ export default function Hero() {
       pulse: number;
     }
 
-    const nodeCount = 26;
     const nodes: Node[] = [];
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 1.8 + 1,
         pulse: Math.random() * Math.PI * 2,
       });
     }
@@ -55,9 +58,11 @@ export default function Hero() {
     }
     const pulses: Pulse[] = [];
 
-    let animId: number;
+    let animId: number = 0;
+    let isRunning = false;
 
     const render = () => {
+      if (!isRunning) return;
       ctx.clearRect(0, 0, width, height);
 
       // Draw and update nodes
@@ -73,17 +78,18 @@ export default function Hero() {
         const glow = Math.sin(node.pulse) * 0.3 + 0.7;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius * glow, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${0.4 * glow})`;
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.45 * glow})`;
         ctx.fill();
 
         for (let j = i + 1; j < nodes.length; j++) {
           const other = nodes[j];
           const dx = other.x - node.x;
           const dy = other.y - node.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 115) {
-            const alpha = (1 - dist / 115) * 0.18;
+          if (distSq < 13225) { // 115 * 115 = 13225, avoids Math.sqrt in hot loop
+            const dist = Math.sqrt(distSq);
+            const alpha = (1 - dist / 115) * 0.16;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
@@ -91,19 +97,19 @@ export default function Hero() {
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            if (Math.random() < 0.0012 && pulses.length < 5) {
+            if (Math.random() < 0.0015 && pulses.length < 4) {
               pulses.push({
                 nodeA: i,
                 nodeB: j,
                 progress: 0,
-                speed: 0.016 + Math.random() * 0.018,
+                speed: 0.016 + Math.random() * 0.016,
               });
             }
           }
         }
       }
 
-      // Draw pulses
+      // Draw active pulses
       for (let p = pulses.length - 1; p >= 0; p--) {
         const pulse = pulses[p];
         pulse.progress += pulse.speed;
@@ -129,16 +135,37 @@ export default function Hero() {
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    // Auto-pause when hero is not visible (0% CPU offscreen)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          if (!isRunning) {
+            isRunning = true;
+            animId = requestAnimationFrame(render);
+          }
+        } else {
+          isRunning = false;
+          cancelAnimationFrame(animId);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    const target = heroRef.current || canvas;
+    if (target) observer.observe(target);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      isRunning = false;
       cancelAnimationFrame(animId);
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
     <section
+      ref={heroRef}
       id="home"
       className="relative pt-28 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-[#090D16] bg-hero-glow bg-tech-grid-dark text-white"
     >

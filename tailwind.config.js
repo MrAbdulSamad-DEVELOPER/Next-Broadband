@@ -36,6 +36,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "var(--font-sans)",
           "'Inter'",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -44,12 +45,14 @@ module.exports = {
           "sans-serif",
         ],
         heading: [
+          "var(--font-heading)",
           "'Plus Jakarta Sans'",
           "-apple-system",
           "BlinkMacSystemFont",
           "sans-serif",
         ],
         display: [
+          "var(--font-display)",
           "'Space Grotesk'",
           "ui-monospace",
           "SFMono-Regular",
