@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Cpu, Home, Shield, Headphones, Check, Sparkles, ArrowRight } from "lucide-react";
+import { Cpu, Home, Shield, Headphones, Check } from "lucide-react";
 
 export default function WhyChooseUs() {
   const points = [
@@ -44,50 +44,50 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
+    <section className="relative py-20 sm:py-28 bg-[#FAFAFA] border-t border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-[#DBEAFE] text-xs font-semibold text-[#1D4ED8] uppercase tracking-wider mb-4 shadow-sm">
             The Next Advantage
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-[-0.03em] uppercase font-heading">
             Why Choose Next Broadband
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#94A3B8]">
+          <p className="mt-4 text-base sm:text-lg text-[#475569] font-sans">
             Built on engineering discipline, dependable hardware, and direct support.
           </p>
         </div>
 
         {/* Bento Grid Layout (4 Feature Cards with Asymmetric Span) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
           {points.map((pt, idx) => {
             const Icon = pt.icon;
             return (
               <div
                 key={idx}
-                className={`${pt.span} p-8 rounded-3xl bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/40 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden flex flex-col justify-between`}
+                className={`${pt.span} p-8 sm:p-10 rounded-3xl bg-white border border-[#E2E8F0] shadow-[0_12px_32px_-8px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1 group relative flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-13 h-13 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] p-3 flex items-center justify-center text-[#00E5FF] group-hover:scale-105 group-hover:border-[#00E5FF]/40 transition-all">
+                    <div className="w-13 h-13 rounded-2xl bg-[#EFF6FF] border border-[#DBEAFE] p-3 flex items-center justify-center text-[#1D4ED8] group-hover:scale-105 transition-transform duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30">
+                    <span className="text-[11px] font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-semibold">
                       {pt.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#00E5FF] transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] font-heading mb-3 group-hover:text-[#1D4ED8] transition-colors">
                     {pt.title}
                   </h3>
 
-                  <p className="text-sm text-[#94A3B8] leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-[#475569] font-sans leading-relaxed mb-6">
                     {pt.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.08] flex items-center gap-2 text-xs text-[#00E5FF] font-mono">
-                  <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                <div className="pt-5 border-t border-[#E2E8F0] flex items-center gap-2 text-xs sm:text-sm text-[#1D4ED8] font-mono font-medium">
+                  <Check className="w-4 h-4 flex-shrink-0" />
                   <span>{pt.highlight}</span>
                 </div>
               </div>

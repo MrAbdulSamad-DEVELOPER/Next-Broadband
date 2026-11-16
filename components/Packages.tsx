@@ -20,14 +20,14 @@ export default function Packages() {
       usage: "1–3 Mobiles, Browsing & WhatsApp",
       recommended: "6–8 Mbps",
       icon: Smartphone,
-      accent: "border-[#00E5FF]/20 hover:border-[#00E5FF]/50",
+      accent: "border-[#E2E8F0] hover:border-[#CBD5E1]",
     },
     {
       title: "Family & Remote Work",
       usage: "HD Streaming, Zoom & Multiple Phones",
       recommended: "10–16 Mbps",
       icon: Users,
-      accent: "border-[#00E5FF]/40 hover:border-[#00E5FF]/70 shadow-lg shadow-[#00E5FF]/10",
+      accent: "border-[#1D4ED8]/40 ring-1 ring-[#1D4ED8]/20 bg-[#EFF6FF]/40",
       featured: true,
     },
     {
@@ -35,7 +35,7 @@ export default function Packages() {
       usage: "4K Streaming, Low Latency & Multi-Device",
       recommended: "20–30 Mbps",
       icon: Gamepad2,
-      accent: "border-[#00E5FF]/20 hover:border-[#00E5FF]/50",
+      accent: "border-[#E2E8F0] hover:border-[#CBD5E1]",
     },
   ];
 
@@ -153,48 +153,48 @@ Please confirm availability and installation details.`;
   };
 
   return (
-    <section id="packages" className="relative py-16 sm:py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
+    <section id="packages" className="relative py-20 sm:py-28 bg-white border-t border-[#E2E8F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-[#DBEAFE] text-xs font-semibold text-[#1D4ED8] uppercase tracking-wider mb-4 shadow-sm">
             Official Speed Tiers
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-[-0.03em] uppercase font-heading">
             Internet Packages
           </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#94A3B8]">
+          <p className="mt-4 text-base sm:text-lg text-[#475569] font-sans">
             Explore high-speed home WiFi packages and commercial broadband solutions across Pakistan. Select your preferred speed tier with direct WhatsApp assistance.
           </p>
 
           {/* Clean, Interactive, Touch-Friendly Filter Tabs */}
-          <div className="inline-flex flex-wrap sm:flex-nowrap justify-center items-center p-1.5 rounded-2xl bg-[#111827] border border-white/[0.08] mt-6 sm:mt-8 shadow-lg max-w-full">
+          <div className="inline-flex flex-wrap sm:flex-nowrap justify-center items-center p-1.5 rounded-full bg-[#F1F5F9] border border-[#E2E8F0] mt-8 shadow-inner max-w-full">
             <button
               onClick={() => setActiveTab("all")}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
+              className={`px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
                 activeTab === "all"
-                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-lg shadow-[#00E5FF]/30"
-                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
+                  ? "bg-[#0F172A] text-white shadow-sm"
+                  : "text-[#64748B] hover:text-[#0F172A]"
               }`}
             >
               All Packages
             </button>
             <button
               onClick={() => setActiveTab("fiber")}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
+              className={`px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
                 activeTab === "fiber"
-                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-lg shadow-[#00E5FF]/30"
-                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
+                  ? "bg-[#0F172A] text-white shadow-sm"
+                  : "text-[#64748B] hover:text-[#0F172A]"
               }`}
             >
               Fiber Optic
             </button>
             <button
               onClick={() => setActiveTab("wireless")}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
+              className={`px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 min-h-[44px] flex items-center justify-center ${
                 activeTab === "wireless"
-                  ? "bg-[#00E5FF] text-[#0A0F1C] shadow-lg shadow-[#00E5FF]/30"
-                  : "text-[#94A3B8] hover:text-[#F8FAFC]"
+                  ? "bg-[#0F172A] text-white shadow-sm"
+                  : "text-[#64748B] hover:text-[#0F172A]"
               }`}
             >
               Wireless
@@ -203,37 +203,37 @@ Please confirm availability and installation details.`;
         </div>
 
         {/* 3-Card "Help Me Choose" Quick Speed Guide */}
-        <div className="mb-12">
+        <div className="mb-14 sm:mb-16">
           <div className="text-center mb-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#00E5FF]">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#1D4ED8] font-bold">
               Speed Recommendation Guide
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-[#F8FAFC] mt-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] font-heading mt-1">
               Need Help Deciding? Choose By Usage
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
             {speedGuides.map((guide, idx) => {
               const Icon = guide.icon;
               return (
                 <div
                   key={idx}
-                  className={`p-5 sm:p-6 rounded-2xl bg-[#111827] border ${guide.accent} transition-all duration-300 hover:-translate-y-1`}
+                  className={`p-6 sm:p-7 rounded-2xl bg-[#FAFAFA] border ${guide.accent} transition-all duration-300 hover:bg-white hover:shadow-[0_12px_28px_-8px_rgba(15,23,42,0.08)]`}
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#0A0F1C] border border-white/[0.08] flex items-center justify-center text-[#00E5FF]">
+                    <div className="w-11 h-11 rounded-xl bg-[#EFF6FF] border border-[#DBEAFE] flex items-center justify-center text-[#1D4ED8]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/30 font-mono">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE] font-display tabular-nums">
                       {guide.recommended}
                     </span>
                   </div>
 
-                  <h4 className="text-base font-bold text-[#F8FAFC] mb-1">
+                  <h4 className="text-base font-bold text-[#0F172A] font-heading mb-1.5">
                     {guide.title}
                   </h4>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#475569] font-sans leading-relaxed">
                     {guide.usage}
                   </p>
                 </div>
@@ -243,75 +243,122 @@ Please confirm availability and installation details.`;
         </div>
 
         {/* 8 Packages Grid: 4 columns desktop, 2 columns tablet, 1 column mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {packages.map((pkg) => {
             const isFeatured = pkg.featured;
             return (
               <div
                 key={pkg.speed}
-                className={`relative rounded-3xl flex flex-col justify-between transition-all duration-300 p-6 sm:p-7 hover:-translate-y-1.5 ${
+                className={`relative rounded-[20px] p-8 flex flex-col justify-between transition-all duration-300 ${
                   isFeatured
-                    ? "bg-gradient-to-b from-[#111827] via-[#16253b] to-[#111827] border-2 border-[#00E5FF] shadow-[0_0_40px_rgba(0,229,255,0.28)] lg:-translate-y-3 hover:shadow-[0_0_50px_rgba(0,229,255,0.4)]"
-                    : "bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/50 hover:bg-[#152033] shadow-xl shadow-black/40"
+                    ? "bg-[#0F172A] text-white border-2 border-[#2563EB] shadow-[0_20px_50px_-10px_rgba(15,23,42,0.4)] lg:-translate-y-3 hover:-translate-y-4"
+                    : "bg-white text-[#0F172A] border border-[#E2E8F0] shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(15,23,42,0.14)] hover:-translate-y-1.5"
                 }`}
               >
-                {/* Prominent Featured Tier Badge */}
+                {/* Prominent Featured Tier Badge on 20 Mbps */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 sm:px-4 py-1 rounded-full bg-[#00E5FF] text-[10px] sm:text-[11px] font-extrabold text-[#0A0F1C] uppercase tracking-wider shadow-lg shadow-[#00E5FF]/40 flex items-center gap-1.5 border border-white/20 whitespace-nowrap">
-                    <Sparkles className="w-3.5 h-3.5 fill-[#0A0F1C]" />
-                    <span>Featured Tier</span>
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#2563EB] text-[11px] font-extrabold text-white uppercase tracking-wider shadow-md shadow-blue-500/30 flex items-center gap-1.5 whitespace-nowrap">
+                    <Sparkles className="w-3.5 h-3.5 fill-white" />
+                    <span>Most Popular Tier</span>
                   </div>
                 )}
 
                 <div>
-                  {/* Speed Header with Electric Cyan */}
-                  <div className="flex items-baseline justify-between mb-2">
-                    <span className="text-3xl sm:text-4xl font-black tracking-tight text-[#00E5FF] drop-shadow-[0_0_12px_rgba(0,229,255,0.35)]">
+                  {/* Speed Header with Space Grotesk Tabular Numerals */}
+                  <div className="flex items-baseline justify-between mb-3">
+                    <span
+                      className={`text-3xl sm:text-4xl font-extrabold font-display tabular-nums tracking-tight ${
+                        isFeatured ? "text-white" : "text-[#0F172A]"
+                      }`}
+                    >
                       {pkg.speed}
                     </span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#00E5FF] px-2.5 py-0.5 rounded-full bg-[#00E5FF]/10 border border-[#00E5FF]/30">
+                    <span
+                      className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full font-semibold ${
+                        isFeatured
+                          ? "bg-blue-500/20 text-[#60A5FA] border border-blue-500/30"
+                          : "bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE]"
+                      }`}
+                    >
                       High Speed
                     </span>
                   </div>
 
-                  <div className="text-xs text-[#94A3B8] font-medium mb-3 min-h-[32px]">
+                  <div
+                    className={`text-xs font-medium mb-3 min-h-[32px] ${
+                      isFeatured ? "text-slate-300" : "text-[#64748B]"
+                    }`}
+                  >
                     {pkg.idealFor}
                   </div>
 
                   {/* Value Highlight Badge */}
-                  <div className="mb-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#00E5FF]/10 border border-[#00E5FF]/25 text-[10px] font-mono text-[#00E5FF]">
-                    <Sparkles className="w-3 h-3 text-[#00E5FF] flex-shrink-0" />
+                  <div
+                    className={`mb-5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono ${
+                      isFeatured
+                        ? "bg-white/10 border border-white/20 text-blue-200"
+                        : "bg-[#F8FAFC] border border-[#E2E8F0] text-[#475569]"
+                    }`}
+                  >
+                    <Sparkles className={`w-3 h-3 ${isFeatured ? "text-blue-300" : "text-[#1D4ED8]"} flex-shrink-0`} />
                     <span>Fast Setup • Direct Engineer Support</span>
                   </div>
 
                   {/* Pricing: CONTACT FOR PRICE */}
-                  <div className="p-3.5 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] mb-6 text-center">
-                    <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] block font-mono mb-0.5">
+                  <div
+                    className={`p-4 rounded-2xl mb-6 text-center ${
+                      isFeatured
+                        ? "bg-white/5 border border-white/10"
+                        : "bg-[#F8FAFC] border border-[#E2E8F0]"
+                    }`}
+                  >
+                    <span
+                      className={`text-[10px] uppercase tracking-wider block font-mono mb-0.5 ${
+                        isFeatured ? "text-slate-400" : "text-[#64748B]"
+                      }`}
+                    >
                       Pricing
                     </span>
-                    <span className="text-xs sm:text-sm font-extrabold text-[#F8FAFC] tracking-wider uppercase text-gradient-cyan">
+                    <span
+                      className={`text-xs sm:text-sm font-extrabold tracking-wider uppercase font-heading ${
+                        isFeatured ? "text-white" : "text-[#0F172A]"
+                      }`}
+                    >
                       CONTACT FOR PRICE
                     </span>
                   </div>
 
-                  {/* Specs */}
-                  <ul className="space-y-2.5 mb-8">
+                  {/* Specs List */}
+                  <ul className="space-y-3 mb-8">
                     {pkg.specs.map((spec, sIdx) => (
-                      <li key={sIdx} className="flex items-start gap-2.5 text-xs text-[#94A3B8]">
-                        <Check className="w-3.5 h-3.5 text-[#00E5FF] mt-0.5 flex-shrink-0" />
+                      <li
+                        key={sIdx}
+                        className={`flex items-start gap-2.5 text-xs sm:text-sm ${
+                          isFeatured ? "text-slate-200" : "text-[#475569]"
+                        }`}
+                      >
+                        <Check
+                          className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                            isFeatured ? "text-[#60A5FA]" : "text-[#1D4ED8]"
+                          }`}
+                        />
                         <span>{spec}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* WhatsApp Conversion Button with min-h-[44px] */}
+                {/* Sleek Pill Action Button */}
                 <div className="pt-2">
                   <a
                     href={getWhatsAppUrl(pkg)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-lg shadow-[#25D366]/25 border border-[#25D366]/40 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
+                    className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 min-h-[46px] transform hover:scale-[1.02] active:scale-[0.98] ${
+                      isFeatured
+                        ? "bg-[#059669] hover:bg-[#047857] text-white shadow-lg shadow-emerald-900/40"
+                        : "bg-[#0F172A] hover:bg-[#1E293B] text-white shadow-sm"
+                    }`}
                   >
                     <MessageCircle className="w-4 h-4 fill-white flex-shrink-0" />
                     <span>Inquire Package</span>
@@ -323,7 +370,7 @@ Please confirm availability and installation details.`;
         </div>
 
         {/* Note */}
-        <div className="mt-10 sm:mt-12 text-center text-xs text-[#94A3B8] max-w-xl mx-auto px-4">
+        <div className="mt-12 text-center text-xs sm:text-sm text-[#64748B] font-sans max-w-xl mx-auto px-4">
           Need custom commercial bandwidth or dedicated corporate lines? Contact our technical team
           directly via WhatsApp for immediate assessment.
         </div>

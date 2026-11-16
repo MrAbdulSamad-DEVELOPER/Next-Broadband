@@ -49,51 +49,51 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative py-16 sm:py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
+    <section className="relative py-20 sm:py-28 bg-[#FAFAFA] border-t border-[#E2E8F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-3">
+        <div className="text-center mb-14 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-[#DBEAFE] text-xs font-semibold text-[#1D4ED8] uppercase tracking-wider mb-4 shadow-sm">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Common Questions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-[-0.03em] uppercase font-heading">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-[#94A3B8]">
+          <p className="mt-4 text-base sm:text-lg text-[#475569] font-sans">
             Everything you need to know about our connectivity, installation, packages, and support.
           </p>
         </div>
 
-        {/* Clickable Accordion List with Clean Plus/Minus Icons */}
+        {/* Clean Enterprise Accordion List */}
         <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className={`rounded-2xl bg-[#111827] border transition-all overflow-hidden ${
+                className={`rounded-2xl bg-white border transition-all overflow-hidden ${
                   isOpen
-                    ? "border-[#00E5FF]/50 shadow-lg shadow-[#00E5FF]/10"
-                    : "border-white/[0.08] hover:border-white/[0.18]"
+                    ? "border-[#1D4ED8] shadow-[0_10px_30px_-10px_rgba(29,78,216,0.12)]"
+                    : "border-[#E2E8F0] hover:border-[#CBD5E1]"
                 }`}
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full flex items-center justify-between p-5 sm:p-6 text-left focus:outline-none min-h-[56px]"
+                  className="w-full flex items-center justify-between p-6 sm:p-7 text-left focus:outline-none min-h-[60px]"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base lg:text-lg font-bold text-[#F8FAFC] pr-4">
+                  <span className="text-base sm:text-lg font-bold text-[#0F172A] font-heading pr-4">
                     {faq.question}
                   </span>
                   <div
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
                       isOpen
-                        ? "bg-[#00E5FF] text-[#0A0F1C] shadow-md shadow-[#00E5FF]/30"
-                        : "bg-[#0A0F1C] border border-white/[0.08] text-[#94A3B8]"
+                        ? "bg-[#1D4ED8] text-white shadow-sm"
+                        : "bg-[#F1F5F9] text-[#64748B]"
                     }`}
                   >
                     {isOpen ? (
-                      <Minus className="w-4 h-4 stroke-[3]" />
+                      <Minus className="w-4 h-4 stroke-[2.5]" />
                     ) : (
                       <Plus className="w-4 h-4 stroke-[2.5]" />
                     )}
@@ -101,7 +101,7 @@ export default function FAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm lg:text-base text-[#94A3B8] leading-relaxed border-t border-white/[0.08] animate-in fade-in duration-200">
+                  <div className="px-6 sm:px-7 pb-6 pt-1 text-sm sm:text-base text-[#475569] font-sans leading-relaxed border-t border-[#F1F5F9] animate-in fade-in-50 duration-200">
                     {faq.answer}
                   </div>
                 )}

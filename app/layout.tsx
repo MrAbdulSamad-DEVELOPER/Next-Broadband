@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0F1C",
+  themeColor: "#090D16",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -173,17 +173,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-PK" className="dark">
+    <html lang="en-PK">
       <head>
         <link rel="canonical" href="https://nextbroadband.vercel.app/" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@600;700&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-background text-text-primary antialiased selection:bg-electric-cyan/20 selection:text-electric-cyan">
+      <body className="bg-[#FAFAFA] text-[#0F172A] font-sans antialiased selection:bg-[#1D4ED8]/15 selection:text-[#1D4ED8]">
         {children}
       </body>
     </html>

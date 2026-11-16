@@ -14,7 +14,7 @@ import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-[#0A0F1C] text-text-primary overflow-x-hidden w-full max-w-full">
+    <div className="relative min-h-screen bg-[#FAFAFA] text-[#0F172A] overflow-x-hidden w-full max-w-full font-sans">
       <Navbar />
 
       <main>
