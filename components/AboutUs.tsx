@@ -2,16 +2,16 @@
 
 import React from "react";
 import Image from "next/image";
-import { User, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { User, ShieldCheck, CheckCircle2, Award, MapPin } from "lucide-react";
 
 export default function AboutUs() {
   return (
     <section id="about" className="relative py-24 bg-[#0A0F1C] border-t border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Brand Emblem & Leadership Credentials */}
+          {/* Left Column: Brand Emblem & Executive Leadership Profile Badges */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm rounded-3xl bg-[#111827] border border-white/[0.08] p-8 flex flex-col items-center text-center shadow-2xl">
+            <div className="relative w-full max-w-md rounded-3xl bg-[#111827] border border-white/[0.08] p-8 flex flex-col items-center text-center shadow-2xl">
               <div className="w-36 h-36 relative mb-6">
                 <Image
                   src="/logo.png"
@@ -29,36 +29,62 @@ export default function AboutUs() {
                 Connecting Communities
               </p>
 
-              {/* Leadership Cards: Crisp, Sharp & Readable */}
-              <div className="w-full space-y-3 border-t border-white/[0.08] pt-6 text-left">
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0A0F1C] border border-white/[0.08]">
-                  <div className="w-10 h-10 rounded-lg bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
-                    <User className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-mono text-[#94A3B8] uppercase">
-                      Chief Executive Officer
+              {/* Clean Executive Profile Badges for Strong Local & Corporate Trust */}
+              <div className="w-full space-y-3.5 border-t border-white/[0.08] pt-6 text-left">
+                {/* Executive 1: CEO */}
+                <div className="p-4 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] hover:border-[#00E5FF]/40 transition-colors">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
+                      <User className="w-5 h-5" />
                     </div>
-                    <div className="text-sm font-bold text-[#F8FAFC]">M. Jahangir</div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-[#00E5FF]">
+                          Leadership
+                        </span>
+                        <span className="text-[10px] font-mono text-[#94A3B8]">
+                          Executive
+                        </span>
+                      </div>
+                      <div className="text-base font-extrabold text-[#F8FAFC]">
+                        M. Jahangir
+                      </div>
+                      <div className="text-xs text-[#94A3B8]">
+                        Chief Executive Officer
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0A0F1C] border border-white/[0.08]">
-                  <div className="w-10 h-10 rounded-lg bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-mono text-[#94A3B8] uppercase">
-                      Site Incharge
+                {/* Executive 2: Site Incharge */}
+                <div className="p-4 rounded-2xl bg-[#0A0F1C] border border-white/[0.08] hover:border-[#00E5FF]/40 transition-colors">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center text-[#00E5FF] flex-shrink-0">
+                      <ShieldCheck className="w-5 h-5" />
                     </div>
-                    <div className="text-sm font-bold text-[#F8FAFC]">Sher Muhammad</div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-[#00E5FF]">
+                          Operations & Field
+                        </span>
+                        <span className="text-[10px] font-mono text-[#94A3B8]">
+                          Engineering
+                        </span>
+                      </div>
+                      <div className="text-base font-extrabold text-[#F8FAFC]">
+                        Sher Muhammad
+                      </div>
+                      <div className="text-xs text-[#94A3B8]">
+                        Site Incharge
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Company Story & Focus */}
+          {/* Right Column: Company Story & Scope of Services */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-white/[0.08] text-xs font-semibold text-[#00E5FF] uppercase tracking-wider mb-4">
               About Next Broadband

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { Plus, Minus, HelpCircle } from "lucide-react";
 
 interface FAQItem {
   question: string;
@@ -64,13 +64,18 @@ export default function FAQ() {
           </p>
         </div>
 
+        {/* Clickable Accordion List with Clean Plus/Minus Icons */}
         <div className="space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-[#111827] border border-white/[0.08] hover:border-[#00E5FF]/40 transition-all overflow-hidden"
+                className={`rounded-2xl bg-[#111827] border transition-all overflow-hidden ${
+                  isOpen
+                    ? "border-[#00E5FF]/50 shadow-lg shadow-[#00E5FF]/10"
+                    : "border-white/[0.08] hover:border-white/[0.18]"
+                }`}
               >
                 <button
                   onClick={() => toggle(idx)}
@@ -81,11 +86,17 @@ export default function FAQ() {
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full bg-[#0A0F1C] border border-white/[0.08] flex items-center justify-center text-[#94A3B8] transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? "rotate-180 text-[#00E5FF] border-[#00E5FF]/40" : ""
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                      isOpen
+                        ? "bg-[#00E5FF] text-[#0A0F1C] shadow-md shadow-[#00E5FF]/30"
+                        : "bg-[#0A0F1C] border border-white/[0.08] text-[#94A3B8]"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    {isOpen ? (
+                      <Minus className="w-4 h-4 stroke-[3]" />
+                    ) : (
+                      <Plus className="w-4 h-4 stroke-[2.5]" />
+                    )}
                   </div>
                 </button>
 
